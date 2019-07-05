@@ -11,8 +11,10 @@ Source code gratis aplikasi antrian berbasis node js dan mysql. <b>TIDAK DIPERJU
   <li>git clone https://github.com/mtegarsp/ngantri</li>
   <li>npm i</li>
   <li>npm run dev</li>
-  <li>buka http://localhost:3000 (untuk diakses publik)</li>
-  <li>buka http://localhost:3000/operator (untuk diakses operator)</li>
+  <li>Upload <b>sabarv3.sql</b> ke database MYSQL kesayanganmu</li>
+  <li>Konfigurasi file <b>conn.js</b> sesuai settingan database</li>
+  <li>buka <i>http://localhost:3000</i> (untuk diakses publik)</li>
+  <li>buka <i>http://localhost:3000/operator</i> (untuk diakses operator)</li>
 </ul>
 <hr>
 <b>Ada pertanyaan lain / Partnership?</b><br>
