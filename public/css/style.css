@@ -1,0 +1,60 @@
+.header{
+  padding: 10px;
+  background: #1b9473;
+  color: #FFF;
+}
+.header img{
+  float:left;
+}
+.running-text{
+  color:#c52222;
+  font-weight:600;
+  background: #69ec33;
+padding: 0;
+font-size:40px;
+}
+#timeNow{
+  font-size: 20px;
+}
+.clear{
+  clear:both;
+}
+.app-name{
+  float:left;
+  margin-top:6px;
+  margin-left:10px
+}
+.app-name h4{
+  margin:0
+}
+.guest-table tr th{
+  border-left:10px solid #FFF;
+  border-right:10px solid #FFF;
+  font-size: 30px;
+  font-weight: 600;
+}
+.guest-table tr td{
+  font-size:50px;
+  font-weight: 600;
+  height: 150px;
+  vertical-align: middle;
+}
+#loader{
+  position: absolute;
+  width: 100%;
+  top:0;
+  bottom:0;
+  z-index:999;
+  background: #ffffffd9;
+  text-align: center;
+  display: none;
+}
+#loader img{
+  margin-top:20%;
+}
+.footer{
+  text-align: center;
+  width: 100%;
+  bottom:0;
+  position: absolute;
+}

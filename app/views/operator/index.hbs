@@ -1,0 +1,96 @@
+<script type="text/javascript">
+if (!$.cookie('op_ppdb')) {
+  var konfirmasi = prompt('halo! saya tegar santosa, ingin membantu anda mengatur settingan operator! Kalau boleh tau, komputer ini sebagai operator berapa?')
+  if (konfirmasi != '' || konfirmasi != 'null') {
+    $.cookie('op_ppdb', konfirmasi)
+    alert(konfirmasi+' diterima! selamat bertugas :)')
+  }
+  location.reload()
+}
+</script>
+<div id="loader"><img src="assets/img/loader.gif" alt="LOADING"></div>
+<div class="container mt-3">
+  <h3>Sebagai: <span class="badge badge-primary" id="wich-operator">OPERATOR </span></h3>
+  <hr>
+  <center>
+    <h3>Nomor Antrian Saat Ini</h3> <br>
+    <h1 style="font-weight:600">
+      {{#unless queues}}
+        Antrian belum dimulai <i class="fa fa-bed"></i>
+      {{/unless}}
+      {{queues.[0].number}}
+    </h1>
+    <button class="btn btn-success" onclick="callNext()">
+      {{#if queues}}
+      Lanjut ke Antrian Berikutnya
+      {{else}}
+      Mulai Antrian Pertama!
+      {{/if}}
+      <i class="fa fa-users"></i></button>
+  </center>
+  <h3>Riwayat pemanggilan</h3>
+  <table class="table text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>Nomor Antrian</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each queues}}
+        <tr>
+          <td style="font-weight:600;">{{number}}</td>
+          <td><button onclick="call({{number}})" class="btn btn-danger btn-sm">PANGGIL LAGI <i class="fa fa-volume-up"></i></button></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{#unless queues}}
+  <div class="alert alert-info">
+    Belum ada riwayat antrian tuh.. Masih ngopi ya
+  </div>
+  {{/unless}}
+</div>
+
+<script type="text/javascript">
+  $("#wich-operator").append($.cookie('op_ppdb'))
+
+  function callNext(){
+    let konfirmasi = confirm('Panggil nomor antrian selanjutnya ?')
+    if (konfirmasi) {
+      $("#loader").fadeIn()
+      axios.post('/operator/next',{
+        operator:$.cookie('op_ppdb'),
+      }).then(res=>{
+        var number = res.data.number
+        axios.post('/operator/next/query',{
+          operator:$.cookie('op_ppdb'),
+          number:number,
+        })
+        axios.post('/voice',{
+          voice:'Nomor antrian.'+number+'. silahkan ke operator.'+$.cookie('op_ppdb')
+        })
+      })
+    }
+    setTimeout(function(){
+      location.reload()
+    }, 500);
+  }
+
+  function call(number){
+    let konfirmasi = confirm('Panggil nomor antrian '+number+' ?')
+    if (konfirmasi) {
+      $("#loader").fadeIn()
+      axios.post('/operator',{
+        operator:$.cookie('op_ppdb'),
+        number:number,
+      })
+      axios.post('/voice',{
+        voice:'Nomor antrian.'+number+'. silahkan ke operator.'+$.cookie('op_ppdb')
+      })
+      setTimeout(function(){
+        location.reload()
+      }, 500);
+    }
+  }
+</script>
