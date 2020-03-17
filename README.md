@@ -19,4 +19,4 @@ Source code gratis aplikasi antrian berbasis node js dan mysql. <b>TIDAK DIPERJU
 <hr>
 <b>Ada pertanyaan lain / Partnership?</b><br>
 <p>081379947983 (WA)<br>
-<a href="https://facebook.com/mtegarsp">M Tegar S (FACEBOOK)</a></p>
+<a href="https://facebook.com/arsandev">Arsan (FACEBOOK)</a></p>
