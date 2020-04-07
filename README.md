@@ -20,6 +20,7 @@ Source code gratis aplikasi antrian berbasis node js dan mysql. <b>TIDAK DIPERJU
 <b>Ada pertanyaan lain / Partnership?</b><br>
 <p>081379947983 (WA)<br>
 <a href="https://facebook.com/arsandev">Arsan (FACEBOOK)</a>
+  <a href="https://instagram.com/arsan.dev">@arsan.dev (INSTAGRAM)</a>
 <hr/>
 <a href="https://teziger.blogspot.com/2019/11/aplikasi-antrian-berbasis-web-realtime.html">UPDATE! Versi Terbaru Untuk Aplikasi Ngantri (Full UI & Realtime)</a>
 </p>
